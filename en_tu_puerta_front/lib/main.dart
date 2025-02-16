@@ -1,5 +1,8 @@
 
-import 'package:en_tu_puerta_front/widgetSettings.dart';
+import 'package:en_tu_puerta_front/widget_home.dart';
+import 'package:en_tu_puerta_front/widget_notifications.dart';
+import 'package:en_tu_puerta_front/widget_search.dart';
+import 'package:en_tu_puerta_front/widget_settings.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -39,15 +42,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   //bottom navigation bar items
   static List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-    ),
-    Text(
-      'Index 1: Search',
-    ),
-    Text(
-      'Index 2: Notifications',
-    ),
+    WidgetHome(),
+    WidgetSearch(),
+    WidgetNotification(),
     WidgetSettings()
   ];
 
@@ -61,7 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
 
-
+      appBar: AppBar(
+        title: Text("En tu puerta"),
+      ),
       body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(items: const<BottomNavigationBarItem>[
         BottomNavigationBarItem(
