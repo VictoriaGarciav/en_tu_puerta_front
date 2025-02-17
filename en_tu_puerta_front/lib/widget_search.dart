@@ -1,5 +1,94 @@
 import 'package:flutter/material.dart';
 
+class ServiceRequestDialog extends StatelessWidget {
+  const ServiceRequestDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            child: Text(
+              'Solicitar servicio',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(height: 20),
+          Text(
+            'Seleccionar fecha',
+            style: TextStyle(fontSize: 16),
+          ),
+          SizedBox(height: 10),
+          // Calendar carousel placeholder
+          Container(
+            height: 100,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Center(child: Text('Calendar Carousel')),
+          ),
+          SizedBox(height: 20),
+          Text(
+            'Seleccionar hora',
+            style: TextStyle(fontSize: 16),
+          ),
+          SizedBox(height: 10),
+          Column(
+            children: [
+              RadioListTile(
+                title: Text('9:00 AM'),
+                value: '9:00',
+                groupValue: null,
+                onChanged: (value) {},
+              ),
+              RadioListTile(
+                title: Text('11:00 AM'),
+                value: '11:00',
+                groupValue: null,
+                onChanged: (value) {},
+              ),
+              RadioListTile(
+                title: Text('1:00 PM'),
+                value: '13:00',
+                groupValue: null,
+                onChanged: (value) {},
+              ),
+              RadioListTile(
+                title: Text('3:00 PM'),
+                value: '15:00',
+                groupValue: null,
+                onChanged: (value) {},
+              ),
+            ],
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text('Cancelar'),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Servicio solicitado exitosamente')),
+            );
+          },
+          child: Text('Confirmar'),
+        ),
+      ],
+    );
+  }
+}
+
 class DetailView extends StatelessWidget {
   final IconData icon;
   final String name;
@@ -52,36 +141,18 @@ class DetailView extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF001563), // Changed color here
+                  backgroundColor: Color(0xFF001563),
                   padding: EdgeInsets.symmetric(vertical: 16),
                 ),
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: (context) => AlertDialog(
-                      title: Text('Confirmar solicitud'),
-                      content: Text('¿Estás seguro que deseas solicitar este servicio?'),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: Text('Cancelar'),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('Solicitud enviada exitosamente')),
-                            );
-                          },
-                          child: Text('Confirmar'),
-                        ),
-                      ],
-                    ),
+                    builder: (context) => ServiceRequestDialog(),
                   );
                 },
                 child: Text(
                   'Solicitar',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
             ),
