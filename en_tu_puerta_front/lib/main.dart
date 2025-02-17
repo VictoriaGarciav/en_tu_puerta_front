@@ -45,21 +45,22 @@ class PreHomeScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 20),
-              Text(
-                'Cliente',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 20),
               Icon(
                 Icons.person,
                 size: 50,
                 color: Colors.blue,
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
+              Text(
+                'Cliente',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF001563),
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -74,6 +75,7 @@ class PreHomeScreen extends StatelessWidget {
                 child: Text('Solicitar servicio', style: TextStyle(color: Colors.white)),
               ),
               SizedBox(height: 40),
+              
               Icon(
                 Icons.person,
                 size: 50,
@@ -85,6 +87,7 @@ class PreHomeScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
+                  color: Color(0xFF001563),
                 ),
                 textAlign: TextAlign.center,
               ),
