@@ -52,13 +52,36 @@ class LocationDialog extends StatelessWidget {
       ),
       actions: [
         TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text('Atras'),
+        ),
+        ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Solicitud enviada exitosamente')),
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: Text('Solicitud enviada!'),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('El proveedor de servicio responderá en los próximos 10 minutos para confirmar la solicitud'),
+                    SizedBox(height: 20),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.popUntil(context, (route) => route.isFirst);
+                        },
+                        child: Text('Aceptar'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             );
           },
-          child: Text('Enviar Solicitud'),
+          child: Text('Enviar solicitud'),
         ),
       ],
     );
