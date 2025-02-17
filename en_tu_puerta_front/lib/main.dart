@@ -59,8 +59,22 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
 
       appBar: AppBar(
-        title: Text("En tu puerta"),
+  title: Row(
+    children: [
+      Image.network(
+        'https://i.postimg.cc/05h66XrJ/Artboard-1-copy-2-3x.png',
+        width: 150, // Adjust width as needed
+        height: 150, // Adjust height as needed
       ),
+      SizedBox(width: 10), // Space between image and title
+      Spacer(), // Pushes the profile logo to the right
+      Icon(
+        Icons.account_circle_outlined,
+         size: 40,
+         color: Color(0xFF001563)),
+    ],
+  ),
+),
       body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(items: const<BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -82,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
       currentIndex: _selectedIndex,
       unselectedItemColor: Colors.grey,
-      selectedItemColor: Colors.deepPurple,
+      selectedItemColor: Color(0xFF001563),
       onTap: _selectOptionInMyBottomNavigation,
       ),
     );
