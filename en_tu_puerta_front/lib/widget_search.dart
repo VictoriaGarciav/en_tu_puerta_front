@@ -52,6 +52,7 @@ class DetailView extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF001563), // Changed color here
                   padding: EdgeInsets.symmetric(vertical: 16),
                 ),
                 onPressed: () {
@@ -80,7 +81,7 @@ class DetailView extends StatelessWidget {
                 },
                 child: Text(
                   'Solicitar',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ),
             ),
