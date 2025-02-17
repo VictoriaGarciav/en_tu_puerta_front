@@ -38,16 +38,10 @@ class _WidgetSearchState extends State<WidgetSearch> {
           padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
           child: SearchBar(
             hintText: 'Search...',
-            leading: Icon(
-              Icons.search,
-              color: Color(0xFF001563),
-              ),
+            leading: Icon(Icons.search),
             trailing: [
               PopupMenuButton<String>(
-                icon: Icon(
-                  Icons.filter_list,
-                  color: Color(0xFF001563),
-                  ),
+                icon: Icon(Icons.filter_list),
                 onSelected: (String value) {
                   setState(() {
                     selectedFilter = value;
@@ -123,11 +117,10 @@ class SearchResultCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.only(bottom: 16.0),
-      child: Container(
-        height: 130, // Fixed height for all cards
+      child: Padding(
         padding: EdgeInsets.all(16.0),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center, // Center icons vertically
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Icon(icon, size: 40, color: Colors.blue),
             SizedBox(width: 16),
@@ -157,8 +150,6 @@ class SearchResultCard extends StatelessWidget {
                   Text(
                     description,
                     style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-                    overflow: TextOverflow.ellipsis, // Handle overflow
-                    maxLines: 2, // Limit to 2 lines
                   ),
                 ],
               ),
