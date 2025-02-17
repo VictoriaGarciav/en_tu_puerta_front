@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
-class WidgetSearch extends StatelessWidget {
+class WidgetSearch extends StatefulWidget {
   const WidgetSearch({super.key});
 
   @override
-Widget build(BuildContext context) {
-  return Container(
-    color: Colors.grey,
-    child: Column(
+  State<WidgetSearch> createState() => _WidgetSearchState();
+}
+
+class _WidgetSearchState extends State<WidgetSearch> {
+  String selectedFilter = 'Todos'; // Initialize with 'Todos' selected
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
       children: [
         Padding(
           padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
@@ -18,32 +23,15 @@ Widget build(BuildContext context) {
               PopupMenuButton<String>(
                 icon: Icon(Icons.filter_list),
                 onSelected: (String value) {
+                  setState(() {
+                    selectedFilter = value;
+                  });
                   // Handle filter selection
-                  switch (value) {
-                    case 'Todos':
-                      // Handle Todos filter
-                      break;
-                    case 'Servicio':
-                      // Handle Servicio filter
-                      break;
-                    case 'Cuenta':
-                      // Handle Cuenta filter
-                      break;
-                  }
                 },
                 itemBuilder: (BuildContext context) => [
-                  PopupMenuItem<String>(
-                    value: 'Todos',
-                    child: Text('Todos'),
-                  ),
-                  PopupMenuItem<String>(
-                    value: 'Servicio',
-                    child: Text('Servicio'),
-                  ),
-                  PopupMenuItem<String>(
-                    value: 'Cuenta',
-                    child: Text('Cuenta'),
-                  ),
+                  _buildMenuItem('Todos'),
+                  _buildMenuItem('Servicio'),
+                  _buildMenuItem('Cuenta'),
                 ],
               ),
             ],
@@ -52,8 +40,27 @@ Widget build(BuildContext context) {
             },
           ),
         ),
-        Text('Index 1: Search'),
       ],
+    );
+  }
+
+  PopupMenuItem<String> _buildMenuItem(String value) {
+  return PopupMenuItem<String>(
+    value: value,
+    child: Container(
+      padding: EdgeInsets.all(8.0), // Increased padding
+      decoration: BoxDecoration(
+        color: selectedFilter == value ? Colors.grey[300] : null,
+        borderRadius: BorderRadius.circular(4.0), // Rounded corners
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(value),
+          if (selectedFilter == value)
+            Icon(Icons.check, size: 16, color: Colors.black),
+        ],
+      ),
     ),
   );
 }
