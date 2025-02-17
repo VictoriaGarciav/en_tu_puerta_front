@@ -47,6 +47,43 @@ class DetailView extends StatelessWidget {
               description,
               style: TextStyle(fontSize: 18),
             ),
+            SizedBox(height: 40),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 16),
+                ),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text('Confirmar solicitud'),
+                      content: Text('¿Estás seguro que deseas solicitar este servicio?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: Text('Cancelar'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('Solicitud enviada exitosamente')),
+                            );
+                          },
+                          child: Text('Confirmar'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                child: Text(
+                  'Solicitar',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -54,6 +91,7 @@ class DetailView extends StatelessWidget {
   }
 }
 
+// Rest of the widget_search.dart file remains unchanged
 class WidgetSearch extends StatefulWidget {
   const WidgetSearch({super.key});
 
