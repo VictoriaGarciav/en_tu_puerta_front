@@ -12,21 +12,21 @@ class _WidgetSearchState extends State<WidgetSearch> {
   final List<Map<String, dynamic>> mockResults = [
     {
       'icon': Icons.cleaning_services,
-      'name': 'Limpieza Profunda',
+      'name': 'Limpieza Profunda de Ares 🤑🤑',
       'rating': 4.5,
       'description': 'Servicio completo de limpieza para hogares y oficinas'
     },
     {
-      'icon': Icons.plumbing,
-      'name': 'Plomería Express',
+      'icon': Icons.laptop,
+      'name': 'Técnico en Informática Victoria',
       'rating': 4.8,
-      'description': 'Reparaciones y mantenimiento de tuberías'
+      'description': 'Tengo habilidades en reparación de computadoras (y hambre)'
     },
     {
-      'icon': Icons.electrical_services,
-      'name': 'Electricista Certificado',
+      'icon': Icons.girl,
+      'name': 'Estilista Certificada Dani',
       'rating': 4.7,
-      'description': 'Instalaciones y reparaciones eléctricas'
+      'description': 'Hago uñas, peinados, maquillaje y más'
     },
   ];
 
@@ -129,7 +129,7 @@ class SearchResultCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center, // Center icons vertically
           children: [
-            Icon(icon, size: 40, color: Colors.blue),
+            Icon(icon, size: 40, color: Color(0xFF001563)),
             SizedBox(width: 16),
             Expanded(
               child: Column(
