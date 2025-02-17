@@ -1,5 +1,70 @@
 import 'package:flutter/material.dart';
 
+class LocationDialog extends StatelessWidget {
+  const LocationDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            child: Text(
+              'Ubicacion',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(height: 20),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Estado',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          SizedBox(height: 10),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Municipio',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          SizedBox(height: 10),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Calle',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          SizedBox(height: 10),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Referencia',
+              border: OutlineInputBorder(),
+            ),
+            maxLines: 3,
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Solicitud enviada exitosamente')),
+            );
+          },
+          child: Text('Enviar Solicitud'),
+        ),
+      ],
+    );
+  }
+}
+
 class ServiceRequestDialog extends StatelessWidget {
   const ServiceRequestDialog({super.key});
 
@@ -25,7 +90,6 @@ class ServiceRequestDialog extends StatelessWidget {
             style: TextStyle(fontSize: 16),
           ),
           SizedBox(height: 10),
-          // Calendar carousel placeholder
           Container(
             height: 100,
             decoration: BoxDecoration(
@@ -71,18 +135,24 @@ class ServiceRequestDialog extends StatelessWidget {
         ],
       ),
       actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(context),
-          child: Text('Cancelar'),
-        ),
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Servicio solicitado exitosamente')),
-            );
-          },
-          child: Text('Confirmar'),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text('Cancelar'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (context) => LocationDialog(),
+                );
+              },
+              child: Text('Continuar'),
+            ),
+          ],
         ),
       ],
     );
@@ -141,7 +211,7 @@ class DetailView extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF001563),
+                  backgroundColor: Colors.blue,
                   padding: EdgeInsets.symmetric(vertical: 16),
                 ),
                 onPressed: () {
@@ -163,7 +233,6 @@ class DetailView extends StatelessWidget {
   }
 }
 
-// Rest of the widget_search.dart file remains unchanged
 class WidgetSearch extends StatefulWidget {
   const WidgetSearch({super.key});
 
