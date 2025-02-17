@@ -48,6 +48,7 @@ class LocationDialog extends StatelessWidget {
             ),
             maxLines: 3,
           ),
+          SizedBox(height: 100),
         ],
       ),
       actions: [
@@ -119,7 +120,7 @@ class ServiceRequestDialog extends StatelessWidget {
               border: Border.all(color: Colors.grey),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Center(child: Text('Calendar Carousel')),
+            child: Center(child: Text('Carrousel de fechas')),
           ),
           SizedBox(height: 20),
           Text(
@@ -234,7 +235,7 @@ class DetailView extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Color(0xFF001563),
                   padding: EdgeInsets.symmetric(vertical: 16),
                 ),
                 onPressed: () {
@@ -245,7 +246,7 @@ class DetailView extends StatelessWidget {
                 },
                 child: Text(
                   'Solicitar',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ),
             ),
