@@ -7,7 +7,7 @@ class WidgetNotification extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey,
-      child: Text('Index 2: Notifications'),
+      child: Text('Index 2: Notificaciones'),
       
     );
   }

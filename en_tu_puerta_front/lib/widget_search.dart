@@ -194,8 +194,8 @@ class DetailView extends StatelessWidget {
     required this.name,
     required this.rating,
     required this.description,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -388,8 +388,8 @@ class SearchResultCard extends StatelessWidget {
     required this.name,
     required this.rating,
     required this.description,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

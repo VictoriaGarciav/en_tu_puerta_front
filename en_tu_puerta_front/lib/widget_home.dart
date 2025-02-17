@@ -7,7 +7,7 @@ class WidgetHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey,
-      child: Text('Index 0: Pepino'),
+      child: Text('Index 0: Home'),
       
     );
   }

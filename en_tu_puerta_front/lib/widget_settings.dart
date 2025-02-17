@@ -7,7 +7,7 @@ class WidgetSettings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey,
-      child: Text('Index 3: Settings'),
+      child: Text('Index 3: Ajustes'),
       
     );
   }

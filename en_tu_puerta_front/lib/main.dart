@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //index of the current page
   int _selectedIndex = 0;
   //bottom navigation bar items
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     WidgetHome(),
     WidgetSearch(),
     WidgetNotification(),
