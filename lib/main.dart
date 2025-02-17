@@ -1,9 +1,5 @@
 import 'package:en_tu_puerta_front/widget_home.dart';
 import 'package:en_tu_puerta_front/widget_notifications.dart';
-import 'package:en_tu_puerta_front/widget_provider_home.dart';
-import 'package:en_tu_puerta_front/widget_provider_metrics.dart';
-import 'package:en_tu_puerta_front/widget_provider_notifications.dart';
-import 'package:en_tu_puerta_front/widget_provider_settings.dart';
 import 'package:en_tu_puerta_front/widget_search.dart';
 import 'package:en_tu_puerta_front/widget_settings.dart';
 import 'package:flutter/material.dart';
@@ -67,11 +63,11 @@ class PreHomeScreen extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const MyHomePage(title: 'Home')),
                   );
                 },
+                child: Text('Solicitar servicio'),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   backgroundColor: Color(0xFF001563),
                 ),
-                child: Text('Solicitar servicio', style: TextStyle(color: Colors.white)),
               ),
               SizedBox(height: 40),
               Icon(
@@ -91,17 +87,13 @@ class PreHomeScreen extends StatelessWidget {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                   Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MyHomePageProvider(title: 'Home')),
-                  );
                   // Add navigation for provider flow here
                 },
+                child: Text('Ofrecer servicio'),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   backgroundColor: Color(0xFF001563),
                 ),
-                child: Text('Ofrecer servicio', style: TextStyle(color: Colors.white)),
               ),
             ],
           ),
@@ -135,15 +127,6 @@ class MyHomePage extends StatefulWidget {
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class MyHomePageProvider extends StatefulWidget {
-  const MyHomePageProvider({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePageProvider> createState() => _MyHomePageProviderState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -195,71 +178,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
-            label: 'Notificaciones',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Perfil',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Color(0xFF001563),
-        onTap: _selectOptionInMyBottomNavigation,
-      ),
-    );
-  }
-}
-
-class _MyHomePageProviderState extends State<MyHomePageProvider> {
-  int _selectedIndex = 0;
-
-  static final List<Widget> _widgetOptions = <Widget>[
-    WidgetProviderHome(),
-    WidgetProviderNotifications(),
-    WidgetProviderMetrics(),
-    WidgetProviderSettings()
-  ];
-
-  void _selectOptionInMyBottomNavigation(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            Image.network(
-              'https://i.postimg.cc/05h66XrJ/Artboard-1-copy-2-3x.png',
-              width: 150,
-              height: 150,
-            ),
-            SizedBox(width: 10),
-            Spacer(),
-            Icon(
-              Icons.account_circle_outlined,
-              size: 40,
-              color: Color(0xFF001563)),
-          ],
-        ),
-      ),
-      body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Búsqueda',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.auto_graph_outlined),
             label: 'Notificaciones',
           ),
           BottomNavigationBarItem(
