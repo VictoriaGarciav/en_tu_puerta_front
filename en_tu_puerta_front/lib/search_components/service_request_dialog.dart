@@ -1,5 +1,4 @@
 import 'package:en_tu_puerta_front/search_components/location_dialog.dart';
-import 'package:en_tu_puerta_front/widget_search.dart';
 import 'package:flutter/material.dart';
 
 class ServiceRequestDialog extends StatelessWidget {

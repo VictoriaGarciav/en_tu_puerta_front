@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'search_components/location_dialog.dart';
-import 'search_components/service_request_dialog.dart';
 import 'search_components/detail_view.dart';
 import 'search_components/search_result_card.dart';
 import 'search_components/search_service.dart';
