@@ -9,10 +9,17 @@ class WidgetProviderNotifications extends StatefulWidget {
 
 class _WidgetProviderNotificationsState extends State<WidgetProviderNotifications> {
   bool _showDetails = false;
+  bool _showCard = true;
 
   void _toggleDetails() {
     setState(() {
       _showDetails = !_showDetails;
+    });
+  }
+
+  void _acceptRequest() {
+    setState(() {
+      _showCard = false;
     });
   }
 
@@ -32,9 +39,10 @@ class _WidgetProviderNotificationsState extends State<WidgetProviderNotification
           ),
           const SizedBox(height: 16),
           _buildDetailItem('Nombre completo:', '*Profile_Name* *Prof_LastName*'),
-          _buildDetailItem('Tipo de servicio:', 'Técnico Ares Ramírez'),
-          _buildDetailItem('Ubicación:', 'null'),
-          _buildDetailItem('Notas adicionales:', 'null'),
+          _buildDetailItem('Tipo de servicio:', 'Servicio estándar'),
+          _buildDetailItem('Ubicación:', 'Calle Principal #123'),
+          _buildDetailItem('Hora de llegada:', '15:30'),
+          _buildDetailItem('Notas adicionales:', 'Ninguna'),
         ],
       ),
     );
@@ -99,7 +107,7 @@ class _WidgetProviderNotificationsState extends State<WidgetProviderNotification
           Expanded(
             child: ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              itemCount: 1,
+              itemCount: _showCard ? 1 : 0,
               separatorBuilder: (context, index) => const SizedBox(height: 12),
               itemBuilder: (context, index) {
                 return MouseRegion(
@@ -160,7 +168,7 @@ class _WidgetProviderNotificationsState extends State<WidgetProviderNotification
                                         const SizedBox(width: 12),
                                         _buildActionButton(
                                           text: 'Aceptar',
-                                          onPressed: () {},
+                                          onPressed: _acceptRequest,
                                           color: Colors.green,
                                         ),
                                       ],
