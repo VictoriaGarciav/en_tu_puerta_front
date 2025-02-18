@@ -37,7 +37,6 @@ class ServiceRequestDialog extends StatelessWidget {
                 DayBox('Jue'),
                 DayBox('Vie'),
                 DayBox('Sáb'),
-                DayBox('Dom'),
               ],
             ),
           ),

@@ -4,21 +4,21 @@ class SearchService {
   static const List<Map<String, dynamic>> mockResults = [
     {
       'icon': Icons.cleaning_services,
-      'name': 'Técnico Ares Ramírez',
+      'name': 'Servicio de Peluquería',
       'rating': 4.5,
-      'description': 'Servicio completo de limpieza para hogares y oficinas'
+      'description': 'Servicio de Peluquería'
     },
     {
-      'icon': Icons.laptop,
-      'name': 'Técnico en Informática Victoria',
+      'icon': Icons.brush_rounded,
+      'name': 'Servicio de Manicura',
       'rating': 4.8,
-      'description': 'Tengo habilidades en reparación de computadoras (y hambre)'
+      'description': 'Servicio de Manicura'
     },
     {
       'icon': Icons.girl,
-      'name': 'Estilista Certificada Dani',
+      'name': 'Servicio de Pedicura',
       'rating': 4.7,
-      'description': 'Hago uñas, peinados, maquillaje y más'
+      'description': 'Servicio de Pedicura'
     },
   ];
 }
