@@ -39,10 +39,9 @@ class _WidgetProviderNotificationsState extends State<WidgetProviderNotification
           ),
           const SizedBox(height: 16),
           _buildDetailItem('Nombre completo:', '*Profile_Name* *Prof_LastName*'),
-          _buildDetailItem('Tipo de servicio:', 'Servicio estándar'),
-          _buildDetailItem('Ubicación:', 'Calle Principal #123'),
-          _buildDetailItem('Hora de llegada:', '15:30'),
-          _buildDetailItem('Notas adicionales:', 'Ninguna'),
+          _buildDetailItem('Tipo de servicio:', 'Técnico Ares Ramíres'),
+          _buildDetailItem('Ubicación:', 'null'),
+          _buildDetailItem('Notas adicionales:', 'null'),
         ],
       ),
     );
