@@ -1,7 +1,76 @@
 import 'package:flutter/material.dart';
 
-class WidgetProviderNotifications extends StatelessWidget {
+class WidgetProviderNotifications extends StatefulWidget {
   const WidgetProviderNotifications({super.key});
+
+  @override
+  State<WidgetProviderNotifications> createState() => _WidgetProviderNotificationsState();
+}
+
+class _WidgetProviderNotificationsState extends State<WidgetProviderNotifications> {
+  bool _showDetails = false;
+
+  void _toggleDetails() {
+    setState(() {
+      _showDetails = !_showDetails;
+    });
+  }
+
+  Widget _buildDetailsView() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Detalles de la solicitud',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF001563),
+            ),
+          ),
+          const SizedBox(height: 16),
+          _buildDetailItem('Nombre completo:', '*Profile_Name* *Prof_LastName*'),
+          _buildDetailItem('Tipo de servicio:', 'Técnico Ares Ramírez'),
+          _buildDetailItem('Ubicación:', 'null'),
+          _buildDetailItem('Notas adicionales:', 'null'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDetailItem(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Text(
+              label,
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey.shade700,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 3,
+            child: Text(
+              value,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Color(0xFF001563),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,71 +112,75 @@ class WidgetProviderNotifications extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          // ignore: deprecated_member_use
                           color: Colors.blue.withOpacity(0.1),
                           blurRadius: 10,
                           offset: const Offset(0, 4),
                         ),
                       ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: Colors.blue.shade50,
-                              shape: BoxShape.circle,
-                            ),
-                            child: Icon(
-                              Icons.person,
-                              color: Color(0xFF001563),
-                              size: 28,
-                            ),
-                          ),
-                          const SizedBox(width: 16),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '*Profile_Name* *Prof_LastName*',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w600,
-                                    color: Color(0xFF001563),
-                                  ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: Colors.blue.shade50,
+                                  shape: BoxShape.circle,
                                 ),
-                                const SizedBox(height: 8),
-                                Row(
+                                child: Icon(
+                                  Icons.person,
+                                  color: Color(0xFF001563),
+                                  size: 28,
+                                ),
+                              ),
+                              const SizedBox(width: 16),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    _buildActionButton(
-                                      text: 'Ver detalles',
-                                      onPressed: () {},
-                                      color: Colors.blue.shade800,
+                                    Text(
+                                      '*Profile_Name* *Prof_LastName*',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xFF001563),
+                                      ),
                                     ),
-                                    const SizedBox(width: 12),
-                                    _buildActionButton(
-                                      text: 'Aceptar',
-                                      onPressed: () {},
-                                      color: Colors.green,
+                                    const SizedBox(height: 8),
+                                    Row(
+                                      children: [
+                                        _buildActionButton(
+                                          text: 'Ver detalles',
+                                          onPressed: _toggleDetails,
+                                          color: Colors.blue.shade800,
+                                        ),
+                                        const SizedBox(width: 12),
+                                        _buildActionButton(
+                                          text: 'Aceptar',
+                                          onPressed: () {},
+                                          color: Colors.green,
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      'Min Restantes: 10',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey.shade700,
+                                      ),
                                     ),
                                   ],
                                 ),
-                                const SizedBox(height: 8),
-                                Text(
-                                  'Min Restantes: 10',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.grey.shade700,
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                        if (_showDetails) _buildDetailsView(),
+                      ],
                     ),
                   ),
                 );

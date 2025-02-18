@@ -4,7 +4,7 @@ class SearchService {
   static const List<Map<String, dynamic>> mockResults = [
     {
       'icon': Icons.cleaning_services,
-      'name': 'Limpieza Profunda de Ares 🤑🤑',
+      'name': 'Técnico Ares Ramírez',
       'rating': 4.5,
       'description': 'Servicio completo de limpieza para hogares y oficinas'
     },
