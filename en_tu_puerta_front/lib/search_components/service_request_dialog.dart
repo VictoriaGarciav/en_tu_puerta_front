@@ -36,39 +36,6 @@ class ServiceRequestDialog extends StatelessWidget {
             child: Center(child: Text('Carrousel de fechas')),
           ),
           SizedBox(height: 20),
-          Text(
-            'Seleccionar hora',
-            style: TextStyle(fontSize: 16),
-          ),
-          SizedBox(height: 10),
-          Column(
-            children: [
-              RadioListTile(
-                title: Text('9:00 AM'),
-                value: '9:00',
-                groupValue: null,
-                onChanged: (value) {},
-              ),
-              RadioListTile(
-                title: Text('11:00 AM'),
-                value: '11:00',
-                groupValue: null,
-                onChanged: (value) {},
-              ),
-              RadioListTile(
-                title: Text('1:00 PM'),
-                value: '13:00',
-                groupValue: null,
-                onChanged: (value) {},
-              ),
-              RadioListTile(
-                title: Text('3:00 PM'),
-                value: '15:00',
-                groupValue: null,
-                onChanged: (value) {},
-              ),
-            ],
-          ),
         ],
       ),
       actions: [
