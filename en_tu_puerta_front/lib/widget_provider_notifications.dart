@@ -30,7 +30,7 @@ class WidgetProviderNotifications extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              itemCount: 5,
+              itemCount: 1,
               separatorBuilder: (context, index) => const SizedBox(height: 12),
               itemBuilder: (context, index) {
                 return MouseRegion(
@@ -72,7 +72,7 @@ class WidgetProviderNotifications extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Nombre Apellido',
+                                  '*Profile_Name* *Prof_LastName*',
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w600,

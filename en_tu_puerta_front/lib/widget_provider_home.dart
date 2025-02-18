@@ -77,7 +77,6 @@ class WidgetProviderHome extends StatelessWidget {
                 _buildServiceCard('Arreglo de computadoras', Icons.computer),
                 _buildServiceCard('Actualizacion de computadoras', Icons.compare),
                 _buildServiceCard('Mejoras de componentes', Icons.build),
-                _buildServiceCard('Manicura de Ares', Icons.brush),
               ],
             ),
             const SizedBox(height: 32),

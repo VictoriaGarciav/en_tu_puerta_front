@@ -259,11 +259,11 @@ class _MyHomePageProviderState extends State<MyHomePageProvider> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
-            label: 'Búsqueda',
+            label: 'Notificaciones',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.auto_graph_outlined),
-            label: 'Notificaciones',
+            label: 'Metricas',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
