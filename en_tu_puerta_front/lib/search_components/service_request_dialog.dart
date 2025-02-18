@@ -29,11 +29,18 @@ class ServiceRequestDialog extends StatelessWidget {
           SizedBox(height: 10),
           Container(
             height: 100,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                DayBox('Lun'),
+                DayBox('Mar'),
+                DayBox('Mié'),
+                DayBox('Jue'),
+                DayBox('Vie'),
+                DayBox('Sáb'),
+                DayBox('Dom'),
+              ],
             ),
-            child: Center(child: Text('Carrousel de fechas')),
           ),
           SizedBox(height: 20),
         ],
@@ -61,4 +68,18 @@ class ServiceRequestDialog extends StatelessWidget {
       ],
     );
   }
+}
+
+Widget DayBox(String day) {
+  return Container(
+    width: 40,
+    height: 40,
+    decoration: BoxDecoration(
+      border: Border.all(color: Colors.grey),
+      borderRadius: BorderRadius.circular(8),
+    ),
+    child: Center(
+      child: Text(day),
+    ),
+  );
 }
