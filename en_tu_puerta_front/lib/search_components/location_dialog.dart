@@ -14,6 +14,7 @@ class LocationDialog extends StatelessWidget {
             child: Text(
               'Ubicacion',
               style: TextStyle(
+                color: Color(0xFF001563),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
@@ -21,34 +22,16 @@ class LocationDialog extends StatelessWidget {
           ),
           SizedBox(height: 20),
           TextField(
-            decoration: InputDecoration(
-              labelText: 'Estado',
-              border: OutlineInputBorder(),
-            ),
-          ),
-          SizedBox(height: 10),
-          TextField(
-            decoration: InputDecoration(
-              labelText: 'Municipio',
-              border: OutlineInputBorder(),
-            ),
-          ),
-          SizedBox(height: 10),
-          TextField(
-            decoration: InputDecoration(
-              labelText: 'Calle',
-              border: OutlineInputBorder(),
-            ),
-          ),
-          SizedBox(height: 10),
-          TextField(
-            decoration: InputDecoration(
-              labelText: 'Referencia',
-              border: OutlineInputBorder(),
-            ),
-            maxLines: 3,
-          ),
-          SizedBox(height: 100),
+  decoration: InputDecoration(
+    labelText: 'Estado',
+    border: OutlineInputBorder(
+      borderSide: BorderSide(color: Color(0xFF001563)),
+    ),
+    alignLabelWithHint: true,
+  ),
+  maxLines: 10,
+)
+
         ],
       ),
       actions: [
