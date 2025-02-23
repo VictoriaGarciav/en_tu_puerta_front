@@ -1,4 +1,4 @@
-import 'package:en_tu_puerta_front/search_components/service_request_dialog.dart';
+import 'package:en_tu_puerta_front/widget_client/search_components/service_request_dialog.dart';
 import 'package:flutter/material.dart';
 
 class DetailView extends StatelessWidget {

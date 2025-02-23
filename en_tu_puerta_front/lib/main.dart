@@ -1,11 +1,11 @@
-import 'package:en_tu_puerta_front/widget_home.dart';
-import 'package:en_tu_puerta_front/widget_notifications.dart';
-import 'package:en_tu_puerta_front/widget_provider_home.dart';
-import 'package:en_tu_puerta_front/widget_provider_metrics.dart';
-import 'package:en_tu_puerta_front/widget_provider_notifications.dart';
-import 'package:en_tu_puerta_front/widget_provider_settings.dart';
-import 'package:en_tu_puerta_front/widget_search.dart';
-import 'package:en_tu_puerta_front/widget_settings.dart';
+import 'package:en_tu_puerta_front/widget_client/widget_home.dart';
+import 'package:en_tu_puerta_front/widget_client/widget_notifications.dart';
+import 'package:en_tu_puerta_front/widget_provider/widget_provider_home.dart';
+import 'package:en_tu_puerta_front/widget_provider/widget_provider_metrics.dart';
+import 'package:en_tu_puerta_front/widget_provider/widget_provider_notifications.dart';
+import 'package:en_tu_puerta_front/widget_provider/widget_provider_settings.dart';
+import 'package:en_tu_puerta_front/widget_client/widget_search.dart';
+import 'package:en_tu_puerta_front/widget_client/widget_settings.dart';
 import 'package:flutter/material.dart';
 
 void main() {

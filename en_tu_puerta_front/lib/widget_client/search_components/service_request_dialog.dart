@@ -1,4 +1,4 @@
-import 'package:en_tu_puerta_front/search_components/location_dialog.dart';
+import 'package:en_tu_puerta_front/widget_client/search_components/location_dialog.dart';
 import 'package:flutter/material.dart';
 
 class ServiceRequestDialog extends StatelessWidget {
@@ -26,7 +26,7 @@ class ServiceRequestDialog extends StatelessWidget {
             style: TextStyle(fontSize: 16),
           ),
           SizedBox(height: 10),
-          Container(
+          SizedBox(
             height: 100,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
