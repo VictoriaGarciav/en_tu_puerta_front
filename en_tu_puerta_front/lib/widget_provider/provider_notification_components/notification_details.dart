@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
+// Componente que muestra los detalles de una notificación/solicitud
 class NotificationDetails extends StatelessWidget {
+
   const NotificationDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Construye la sección de detalles con información del cliente y servicio
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -28,7 +32,9 @@ class NotificationDetails extends StatelessWidget {
     );
   }
 
+  // Método auxiliar para construir items de detalle con estilo consistente
   Widget _buildDetailItem(String label, String value) {
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(

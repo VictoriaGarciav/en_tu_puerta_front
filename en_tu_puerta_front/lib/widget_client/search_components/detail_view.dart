@@ -1,7 +1,9 @@
 import 'package:en_tu_puerta_front/widget_client/search_components/service_request_dialog.dart';
 import 'package:flutter/material.dart';
 
+// Vista detallada de un servicio con opción de solicitud
 class DetailView extends StatelessWidget {
+
   final IconData icon;
   final String name;
   final double rating;
@@ -17,6 +19,8 @@ class DetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Construye la vista detallada con información del servicio y botón de solicitud
+
     return Scaffold(
       appBar: AppBar(
         title: Text(name),

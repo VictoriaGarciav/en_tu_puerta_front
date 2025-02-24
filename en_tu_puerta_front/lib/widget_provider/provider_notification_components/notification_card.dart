@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'notification_details.dart';
 
+// Componente de tarjeta para mostrar notificaciones/solicitudes al proveedor
 class NotificationCard extends StatefulWidget {
+
   final String profileName;
   final String profLastName;
   final VoidCallback onAccept;
@@ -19,10 +21,14 @@ class NotificationCard extends StatefulWidget {
   State<NotificationCard> createState() => _NotificationCardState();
 }
 
+// Estado que maneja la lógica y visualización de la tarjeta de notificación
 class _NotificationCardState extends State<NotificationCard> {
+
   bool _showDetails = false;
 
+  // Alterna la visibilidad de los detalles de la notificación
   void _toggleDetails() {
+
     setState(() {
       _showDetails = !_showDetails;
     });
@@ -30,6 +36,8 @@ class _NotificationCardState extends State<NotificationCard> {
 
   @override
   Widget build(BuildContext context) {
+    // Construye la interfaz de la tarjeta de notificación con animaciones
+
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: AnimatedContainer(
@@ -117,7 +125,9 @@ class _NotificationCardState extends State<NotificationCard> {
     );
   }
 
+  // Método auxiliar para construir botones de acción estilizados
   Widget _buildActionButton({
+
     required String text,
     required VoidCallback onPressed,
     required Color color,

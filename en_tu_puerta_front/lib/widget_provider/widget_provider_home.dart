@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
+// Widget para la pantalla principal del proveedor
 class WidgetProviderHome extends StatelessWidget {
+
   const WidgetProviderHome({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Construye la interfaz principal del proveedor con secciones de perfil, servicios y agenda
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mi Perfil', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFF001563)),),
@@ -116,7 +120,9 @@ class WidgetProviderHome extends StatelessWidget {
     );
   }
 
+  // Método auxiliar para construir tarjetas de servicios
   Widget _buildServiceCard(String serviceName, IconData icon) {
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),

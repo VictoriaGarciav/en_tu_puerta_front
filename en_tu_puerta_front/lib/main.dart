@@ -8,11 +8,15 @@ import 'package:en_tu_puerta_front/widget_client/widget_search.dart';
 import 'package:en_tu_puerta_front/widget_client/widget_settings.dart';
 import 'package:flutter/material.dart';
 
+// Punto de entrada principal de la aplicación
 void main() {
   runApp(const MyApp());
 }
 
+
+// Pantalla inicial que permite seleccionar entre modo cliente y proveedor
 class PreHomeScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,7 +118,9 @@ class PreHomeScreen extends StatelessWidget {
   }
 }
 
+// Clase principal que configura la aplicación Flutter
 class MyApp extends StatelessWidget {
+
   const MyApp({super.key});
 
   @override
@@ -131,7 +137,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// Pantalla principal para el modo cliente
 class MyHomePage extends StatefulWidget {
+
   const MyHomePage({super.key, required this.title});
 
   final String title;
@@ -140,7 +148,9 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+// Pantalla principal para el modo proveedor
 class MyHomePageProvider extends StatefulWidget {
+
   const MyHomePageProvider({super.key, required this.title});
 
   final String title;
@@ -149,7 +159,9 @@ class MyHomePageProvider extends StatefulWidget {
   State<MyHomePageProvider> createState() => _MyHomePageProviderState();
 }
 
+// Estado que maneja la navegación y widgets del modo cliente
 class _MyHomePageState extends State<MyHomePage> {
+
   int _selectedIndex = 0;
 
   static final List<Widget> _widgetOptions = <Widget>[
@@ -214,7 +226,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+// Estado que maneja la navegación y widgets del modo proveedor
 class _MyHomePageProviderState extends State<MyHomePageProvider> {
+
   int _selectedIndex = 0;
 
   static final List<Widget> _widgetOptions = <Widget>[

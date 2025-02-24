@@ -3,18 +3,24 @@ import 'search_components/detail_view.dart';
 import 'search_components/search_result_card.dart';
 import 'search_components/search_service.dart';
 
+// Widget para la pantalla de búsqueda del cliente
 class WidgetSearch extends StatefulWidget {
+
   const WidgetSearch({super.key});
 
   @override
   State<WidgetSearch> createState() => _WidgetSearchState();
 }
 
+// Estado que maneja la lógica de búsqueda y filtrado
 class _WidgetSearchState extends State<WidgetSearch> {
+
   final TextEditingController _searchController = TextEditingController();
   List<Map<String, dynamic>> _filteredResults = [];
 
+  // Filtra los resultados basados en la consulta de búsqueda
   void _filterResults(String query) {
+
     setState(() {
       if (query.isEmpty) {
         _filteredResults = [];
@@ -30,6 +36,8 @@ class _WidgetSearchState extends State<WidgetSearch> {
 
   @override
   Widget build(BuildContext context) {
+    // Construye la interfaz de búsqueda con campo de texto y lista de resultados
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Buscar'),

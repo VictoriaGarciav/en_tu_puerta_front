@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'provider_notification_components/notification_card.dart';
 
+// Widget para la pantalla de notificaciones del proveedor
 class WidgetProviderNotifications extends StatefulWidget {
+
   const WidgetProviderNotifications({super.key});
 
   @override
   State<WidgetProviderNotifications> createState() => _WidgetProviderNotificationsState();
 }
 
+// Estado que maneja la lógica de las notificaciones del proveedor
 class _WidgetProviderNotificationsState extends State<WidgetProviderNotifications> {
+
   bool _showCard = true;
 
+  // Método para aceptar una solicitud de servicio
   void _acceptRequest() {
+
     setState(() {
       _showCard = false;
     });
@@ -19,6 +25,8 @@ class _WidgetProviderNotificationsState extends State<WidgetProviderNotification
 
   @override
   Widget build(BuildContext context) {
+    // Construye la interfaz de notificaciones con lista de solicitudes
+
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+// Componente que muestra una tarjeta de resultado de búsqueda
 class SearchResultCard extends StatelessWidget {
+
   final IconData icon;
   final String name;
   final double rating;
@@ -16,6 +18,8 @@ class SearchResultCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Construye la tarjeta de resultado con icono, nombre, rating y descripción
+
     return Card(
       margin: EdgeInsets.only(bottom: 16.0),
       child: Container(

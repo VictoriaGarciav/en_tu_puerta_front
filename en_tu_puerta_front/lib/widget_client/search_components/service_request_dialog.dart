@@ -1,11 +1,17 @@
 import 'package:en_tu_puerta_front/widget_client/search_components/location_dialog.dart';
+import 'package:en_tu_puerta_front/widgets/reusable_button.dart';
+
 import 'package:flutter/material.dart';
 
+// Diálogo para solicitar un servicio con selección de fecha
 class ServiceRequestDialog extends StatelessWidget {
+
   const ServiceRequestDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Construye el diálogo con selección de fecha y botones de acción
+
     return AlertDialog(
       content: Column(
         mainAxisSize: MainAxisSize.min,
@@ -48,19 +54,26 @@ class ServiceRequestDialog extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TextButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {
+                // Cierra el diálogo actual sin realizar cambios
+                Navigator.pop(context);
+              },
               child: Text('Cancelar'),
             ),
-            ElevatedButton(
+            ReusableButton(
+              text: 'Continuar',
+              color: Color(0xFF001563),
               onPressed: () {
+                // Cierra este diálogo y abre el diálogo de ubicación
                 Navigator.pop(context);
                 showDialog(
                   context: context,
                   builder: (context) => LocationDialog(),
                 );
               },
-              child: Text('Continuar'),
             ),
+
+
           ],
         ),
       ],
@@ -68,7 +81,9 @@ class ServiceRequestDialog extends StatelessWidget {
   }
 }
 
+// Widget auxiliar para mostrar cajas de selección de día
 Widget DayBox(String day) {
+
   return Container(
     width: 40,
     height: 40,
