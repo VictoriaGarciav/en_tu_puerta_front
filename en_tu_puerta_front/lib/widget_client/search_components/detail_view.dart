@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:en_tu_puerta_front/widgets/reusable_button.dart';
 import 'package:en_tu_puerta_front/widget_client/search_components/service_request_dialog.dart';
+import 'package:en_tu_puerta_front/widgets/image_carousel.dart';
+
+import 'package:carousel_slider/carousel_slider.dart';
 
 class DetailView extends StatelessWidget {
   final String name;
@@ -33,7 +36,18 @@ class DetailView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Carrusel de imágenes
+            ImageCarousel(
+              imageUrls: [
+                'https://picsum.photos/200/300',
+                'https://picsum.photos/200/400',
+                'https://picsum.photos/200/350',
+              ],
+            ),
+            const SizedBox(height: 16),
+            
             // Nombre del servicio
+
             Text(
               name,
               style: const TextStyle(
