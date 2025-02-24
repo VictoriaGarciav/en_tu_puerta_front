@@ -5,14 +5,17 @@ class SearchResultCard extends StatelessWidget {
 
   final IconData icon;
   final String name;
+  final double price;
   final double rating;
   final String description;
 
   const SearchResultCard({
     required this.icon,
     required this.name,
+    required this.price,
     required this.rating,
     required this.description,
+
     super.key,
   });
 
@@ -23,8 +26,9 @@ class SearchResultCard extends StatelessWidget {
     return Card(
       margin: EdgeInsets.only(bottom: 16.0),
       child: Container(
-        height: 130,
-        padding: EdgeInsets.all(16.0),
+        height: 150,
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -36,29 +40,43 @@ class SearchResultCard extends StatelessWidget {
                 children: [
                   Text(
                     name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 6),
                   Row(
                     children: [
-                      Icon(Icons.star, size: 16, color: Colors.amber),
-                      SizedBox(width: 4),
                       Text(
-                        rating.toString(),
-                        style: TextStyle(fontSize: 14),
+                        '\$${price.toStringAsFixed(2)}',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Spacer(),
+                      const Icon(Icons.star, size: 16, color: Colors.amber),
+                      const SizedBox(width: 4),
+                      Text(
+                        rating.toStringAsFixed(1),
+                        style: const TextStyle(fontSize: 14),
                       ),
                     ],
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 6),
+
                   Text(
                     description,
-                    style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey[600],
+                    ),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ),
+
                 ],
               ),
             ),

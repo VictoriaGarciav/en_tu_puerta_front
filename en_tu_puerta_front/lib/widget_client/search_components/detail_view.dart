@@ -1,78 +1,151 @@
-import 'package:en_tu_puerta_front/widget_client/search_components/service_request_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:en_tu_puerta_front/widgets/reusable_button.dart';
+import 'package:en_tu_puerta_front/widget_client/search_components/service_request_dialog.dart';
 
-// Vista detallada de un servicio con opción de solicitud
 class DetailView extends StatelessWidget {
-
-  final IconData icon;
   final String name;
-  final double rating;
+  final double price;
   final String description;
+  final String providerImage;
+  final String providerName;
+  final double rating;
+  final String location;
 
   const DetailView({
-    required this.icon,
     required this.name,
-    required this.rating,
+    required this.price,
     required this.description,
+    required this.providerImage,
+    required this.providerName,
+    required this.rating,
+    required this.location,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    // Construye la vista detallada con información del servicio y botón de solicitud
-
     return Scaffold(
       appBar: AppBar(
         title: Text(name),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(icon, size: 60, color: Color(0xFF001563)),
-            SizedBox(height: 20),
+            // Nombre del servicio
             Text(
               name,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 8),
+            
+            // Precio
+            Text(
+              '\$${price.toStringAsFixed(2)}',
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.green,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 16),
+            
+            // Título Descripción
+            const Text(
+              'Descripción',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            
+            // Descripción del servicio
+            Text(
+              description,
+              style: const TextStyle(
+                fontSize: 16,
+              ),
+            ),
+            const SizedBox(height: 16),
+            
+            // Línea horizontal
+            const Divider(thickness: 1),
+            const SizedBox(height: 16),
+            
+            // Información del prestador
             Row(
               children: [
-                Icon(Icons.star, size: 24, color: Colors.amber),
-                SizedBox(width: 4),
-                Text(
-                  rating.toString(),
-                  style: TextStyle(fontSize: 20),
+                // Foto del prestador
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: NetworkImage(providerImage),
+                ),
+                const SizedBox(width: 16),
+                
+                // Detalles del prestador
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Nombre del prestador
+                      Text(
+                        providerName,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      
+                      // Rating en estrellas
+                      Row(
+                        children: [
+                          const Icon(Icons.star, color: Colors.amber, size: 16),
+                          const SizedBox(width: 4),
+                          Text(
+                            rating.toStringAsFixed(1),
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                      
+                      // Ubicación
+                      Row(
+                        children: [
+                          const Icon(Icons.location_on, size: 16),
+                          const SizedBox(width: 4),
+                          Text(
+                            location,
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
-            SizedBox(height: 20),
-            Text(
-              description,
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 40),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF001563),
-                  padding: EdgeInsets.symmetric(vertical: 16),
-                ),
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => ServiceRequestDialog(),
-                  );
-                },
-                child: Text(
-                  'Solicitar',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                ),
-              ),
-            ),
           ],
+        ),
+      ),
+      // Botón fijo en la parte inferior
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ReusableButton(
+          text: 'Solicitar',
+          color: const Color(0xFF001563),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => const ServiceRequestDialog(),
+            );
+          },
         ),
       ),
     );

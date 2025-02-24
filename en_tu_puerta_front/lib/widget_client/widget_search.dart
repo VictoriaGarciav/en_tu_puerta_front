@@ -115,20 +115,26 @@ class _WidgetSearchState extends State<WidgetSearch> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => DetailView(
-                                icon: result['icon'],
                                 name: result['name'],
-                                rating: result['rating'],
+                                price: result['price'],
                                 description: result['description'],
+                                providerImage: result['providerImage'],
+                                providerName: result['providerName'],
+                                rating: result['rating'],
+                                location: result['location'],
                               ),
+
                             ),
                           );
                         },
-                        child: SearchResultCard(
-                          icon: result['icon'],
-                          name: result['name'],
-                          rating: result['rating'],
-                          description: result['description'],
-                        ),
+                          child: SearchResultCard(
+                            icon: result['icon'],
+                            name: result['name'],
+                            price: result['price'],
+                            rating: result['rating'],
+                            description: result['description'],
+                          ),
+
                       );
                     },
                   ),
