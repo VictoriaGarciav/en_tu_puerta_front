@@ -7,7 +7,7 @@ class SearchService {
       'name': 'Servicio de Peluquería',
       'price': 25.0,
       'rating': 4.5,
-      'description': 'Servicio de Peluquería profesional con los mejores estilistas',
+      'description': 'Conque tu eres el tal deadpool o debería decir una simple copia barata y estúpida de mi si me fijo en ti no tienes nadad original hombre plagueaste mi traje, mis poderes y nombre donde quieres que te encaje mis balas tu sucia y torpe katana no va a poder c',
       'providerImage': 'https://example.com/prof1.jpg',
       'providerName': 'María López',
       'location': 'Calle Principal #123'
