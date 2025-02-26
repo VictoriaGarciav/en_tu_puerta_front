@@ -3,7 +3,6 @@ import 'package:en_tu_puerta_front/widgets/reusable_button.dart';
 import 'package:en_tu_puerta_front/widget_client/search_components/service_request_dialog.dart';
 import 'package:en_tu_puerta_front/widgets/image_carousel.dart';
 
-import 'package:carousel_slider/carousel_slider.dart';
 
 class DetailView extends StatelessWidget {
   final String name;
